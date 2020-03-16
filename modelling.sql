@@ -1,7 +1,7 @@
-DROP TABLE IF EXISTS User;
 DROP TABLE IF EXISTS Cat;
-DROP TABLE IF EXISTS Adoption;
 DROP TABLE IF EXISTS Shelter;
+DROP TABLE IF EXISTS Adoption;
+DROP TABLE IF EXISTS User;
 
 CREATE TABLE User (
   username VARCHAR(100) PRIMARY KEY,
@@ -9,13 +9,6 @@ CREATE TABLE User (
   address VARCHAR(1000),
   postcode VARCHAR(100),
   email VARCHAR (100)
-);
-
-CREATE TABLE Cat(
-  catid INTEGER PRIMARY KEY,
-  name VARCHAR(100),
-  shelter VARCHAR(100),
-  FOREIGN KEY (shelter) REFERENCES Shelter(shelterName)
 );
 
 CREATE TABLE Adoption(
@@ -31,4 +24,11 @@ CREATE TABLE Shelter(
   region VARCHAR (100),
   phone INTEGER,
   email VARCHAR(100)
-)
+);
+
+CREATE TABLE Cat(
+  catid INTEGER PRIMARY KEY,
+  name VARCHAR(100),
+  shelter VARCHAR(100),
+  FOREIGN KEY (shelter) REFERENCES Shelter(shelterName)
+);

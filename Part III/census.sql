@@ -80,7 +80,7 @@ WITH North_West_Data AS(
 	WHERE Region.code = 'E12000002'
 	GROUP BY County.name, Occupation.name, Statistic.gender
 )
-SELECT CLU, occupation, gender, N,
+SELECT CLU, occupation, 
 CASE 
 	WHEN North_West_Data.gender = 0 THEN 'female'
 	WHEN North_West_Data.gender = 1 THEN 'male'
@@ -101,18 +101,6 @@ ORDER BY North_West_Data.N ASC;
 -- !end
 
 
-
-
-
-
-
-
-
-
-
-SELECT SUM(Statistic.data) AS total_working_pop, Statistic.gender AS gender 
-FROM Statistic
-GROUP BY Statistic.gender
 
 
 
