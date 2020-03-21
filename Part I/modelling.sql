@@ -24,18 +24,18 @@ CREATE TABLE Shelter(
 CREATE TABLE Cat(
   catid INTEGER PRIMARY KEY,
   name VARCHAR(100),
-  shelter VARCHAR(100),
   dateOfEntry DATE,
   age INT,
-  sex BOOLEAN,
-  FOREIGN KEY (shelter) REFERENCES Shelter(name)
+  sex BOOLEAN
 );
 
 CREATE TABLE Adoption(
   user VARCHAR (100),
   catid INTEGER,
   adoptionDate DATE,
+  shelter VARCHAR (100),
   FOREIGN KEY (user) REFERENCES User(username),
   FOREIGN KEY (catid) REFERENCES Cat(catid),
+  FOREIGN KEY (shelter) REFERENCES Shelter(name),
   PRIMARY KEY (user, catid)
 );

@@ -23,12 +23,16 @@ CREATE TABLE Shelter(
   address VARCHAR (1000),
   region VARCHAR (100),
   phone INTEGER,
-  email VARCHAR(100)
+  email VARCHAR(100),
+  capacity INTEGER
 );
 
 CREATE TABLE Cat(
   catid INTEGER PRIMARY KEY,
   name VARCHAR(100),
   shelter VARCHAR(100),
+  dateOfEntry DATE,
+  age INT,
+  sex BOOLEAN,
   FOREIGN KEY (shelter) REFERENCES Shelter(shelterName)
 );
